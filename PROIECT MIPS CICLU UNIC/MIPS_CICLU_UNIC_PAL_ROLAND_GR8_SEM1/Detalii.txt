@@ -1,0 +1,49 @@
+Programul atasat este functional si a fost testat pe simulator pe tot parcursul dezvoltarii. Ulterior, aceasta a fost testat si pe placa, unde s-a confirmat ca functioneaza corect.
+
+Probleme intampinate:
+ - valorile nu au fost preluate corect din memoria RAM din MEM
+ - instructiunile de tip JUMP nu au functionat corect
+ - au existat erori si la instructiunile de tip BRANCH in cazul compararilor
+
+
+Descrierea instructiunilor:
+
+1) BGT
+Am creat aceasta instructiune BGT ( BRANCH GREATHER THAN ) pentru ca am avut nevoie sa compar numarul preluat din sir cu valoarea cifrei 5 pentru a vedea daca este sau nu mai mare.
+In caz de numarul era mai mare decat 5, programul sarea la o alta verificare, si anume sa verifice daca numarul este par/impar. In cazul in care numarul era mai mic decat 5, programul isi relua executia cu alta valoare incarcata din memoria RAM.
+
+bgt $t5, $t6, check_par 
+
+ --> in $t5 am valoarea lui sir[i]
+ --> in $t6 am valorea lui 5, cu care fac comparatia
+ --> check_par este o adresa unde trebuia sa sara in caz de $t5 > $t6
+
+
+
+2) SUBI 
+Am avut nevoie de aceasta instructiune pentru a scadea numarul de elemente parcurse din sir la fiecare iteratie
+
+subi $t2, $t2, 1
+
+ --> in $t2 am numarul de elemente
+ --> voi salva in $t2 <- $t2 - 1
+
+
+3) ADDI
+Am nevoie de aceasta instructiune pentru a trece la urmatorul numar din sir
+
+addi $t3, $t3, 1
+ 
+ --> in $t3 am initial adresa de la care incepe elementele sirului, adica sir[0]
+ --> adun mereu in $t3 <- $t3 + 1 pentru a merge la urmatoarea valoare a sirului
+
+
+4) SW
+Folosesc "store word" pentru a salva in RAM[0] din MEM, rezultatul final al programului
+
+sw $t4, 0($t1)
+
+ --> in $t4 am rezultatul partial la fiecare iteratie, iar la final de program o sa am rezultatul final
+  --> in $t1 am valoarea '0', pentru a salva in RAM[0] din MEM
+
+

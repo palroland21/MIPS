@@ -1,0 +1,13 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../PIPELINE.srcs/sources_1/new/EX.vhd" \
+"../../../../PIPELINE.srcs/sources_1/new/IDecode.vhd" \
+"../../../../PIPELINE.srcs/sources_1/new/IFetch.vhd" \
+"../../../../PIPELINE.srcs/sources_1/new/MEM.vhd" \
+"../../../../PIPELINE.srcs/sources_1/new/MPG.vhd" \
+"../../../../PIPELINE.srcs/sources_1/new/SSD.vhd" \
+"../../../../PIPELINE.srcs/sources_1/new/UC.vhd" \
+"../../../../PIPELINE.srcs/sources_1/new/test_env.vhd" \
+
+# Do not sort compile order
+nosort
